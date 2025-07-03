@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "Servidor local que se ejecuta en un ordenador comun dentro de la red",
+  "keywords": [
+    "node",
+    "server",
+    "javascript",
+    "html",
+    "css",
+    "express",
+    "filesystem"
+  ],
+  "homepage": "https://github.com/Skell-s-Software/Server#readme",
+  "bugs": {
+    "url": "https://github.com/Skell-s-Software/Server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skell-s-Software/Server.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Skell's Software",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
