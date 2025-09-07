@@ -13,11 +13,18 @@
             <span id="path-display">/</span>
         </div>
         <ul id="file-list" class="caja"></ul>
-        <!--
-            <div id="aviso" class="caja">
-                <p>Aun me falta agregar las opciones que permiten la subida de archivos.</p>
+        <div class="caja herramientas">
+            <div class="upload-container">
+                <h2>Subir Archivo</h2>
+                <input type="file" id="fileInput">
+                <button id="uploadButton">Subir Archivo</button>
             </div>
-        -->
+            <div class="create-folder-container">
+                <h2>Crear Carpeta</h2>
+                <input type="text" id="folderNameInput" placeholder="Nombre de la carpeta">
+                <button id="createFolderButton">Crear</button>
+            </div>
+        </div>
         <script src="script.js" defer></script>
     </body>
 </html>

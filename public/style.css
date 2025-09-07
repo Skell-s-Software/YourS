@@ -28,8 +28,11 @@ li > button {
     margin-left: 20px;
 }
 
-.size {
-    border: solid 1px rgb(95, 115, 141);
-    padding: 2px;
-    border-radius: 4px;
+.herramientas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2 {
+    margin-top: 0px;
 }

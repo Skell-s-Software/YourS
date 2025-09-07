@@ -126,3 +126,72 @@ async function fetchFiles(path = '') {
 document.addEventListener('DOMContentLoaded', () => {
   fetchFiles();
 });
+
+// Lógica para subir archivos
+const fileInput = document.getElementById('fileInput');
+const uploadButton = document.getElementById('uploadButton');
+
+uploadButton.addEventListener('click', async () => {
+    const file = fileInput.files[0];
+    if (!file) {
+        alert('Por favor, selecciona un archivo primero.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('path', currentPath); // Envía la ruta actual
+
+    try {
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            fileInput.value = ''; // Limpia el input
+            fetchFiles(currentPath); // Recarga la lista de archivos
+        } else {
+            alert(`Error: ${result.error}`);
+        }
+    } catch (error) {
+        console.error('Error al subir el archivo:', error);
+        alert('Hubo un error al subir el archivo.');
+    }
+});
+
+// Lógica para crear una nueva carpeta
+const folderNameInput = document.getElementById('folderNameInput');
+const createFolderButton = document.getElementById('createFolderButton');
+
+createFolderButton.addEventListener('click', async () => {
+    const folderName = folderNameInput.value.trim();
+    if (!folderName) {
+        alert('Por favor, ingresa un nombre para la carpeta.');
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/create-folder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: folderName, path: currentPath }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message);
+            folderNameInput.value = ''; // Limpia el input
+            fetchFiles(currentPath); // Recarga la lista de archivos
+        } else {
+            alert(`Error: ${result.error}`);
+        }
+    } catch (error) {
+        console.error('Error al crear la carpeta:', error);
+        alert('Hubo un error al crear la carpeta.');
+    }
+});
