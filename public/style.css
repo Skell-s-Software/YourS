@@ -1,0 +1,35 @@
+body {
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.caja {
+    border-radius: 5px;
+    box-shadow: 0px 5px 0px rgb(95, 115, 141);
+    border: solid 2px rgb(95, 115, 141);
+    padding: 10px;
+}
+
+.caja > #path-display {
+    font-weight: bolder;
+}
+
+#file-list{
+    padding-left: 40px;
+}
+
+#file-list > li {
+    border-bottom: solid 2px rgb(95, 115, 141);
+    padding: 10px;
+    align-content: center;
+}
+
+li > button {
+    margin-left: 20px;
+}
+
+.size {
+    border: solid 1px rgb(95, 115, 141);
+    padding: 2px;
+    border-radius: 4px;
+}

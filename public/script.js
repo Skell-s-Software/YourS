@@ -12,7 +12,7 @@ function formatSize(bytes) {
 // Función principal para obtener y mostrar archivos del backend
 async function fetchFiles(path = '') {
   currentPath = path;
-  pathDisplay.textContent = path || '/';
+  pathDisplay.textContent = "~/" + path + "/" || '/';
 
   try {
     const response = await fetch(`/api/files?path=${encodeURIComponent(path)}`);
@@ -38,12 +38,12 @@ async function fetchFiles(path = '') {
       const filePath = path ? `${path}/${file.name}` : file.name;
 
       if (file.isDirectory) {
-        li.innerHTML = `<span class="icon">📂</span> ${file.name} - <span class="size">${formatSize(file.size)}</span>`;
+        li.innerHTML = `<span class="icon">📂</span> ${file.name}`;
         li.addEventListener('click', () => {
           fetchFiles(filePath);
         });
       } else {
-        li.innerHTML = `<span class="icon">📄</span> ${file.name} - <span class="size">${formatSize(file.size)}</span>`;
+        li.innerHTML = `<span class="icon">📄</span> ${file.name} | <span class="size">${formatSize(file.size)}</span>`;
 
         const previewButton = document.createElement('button');
         previewButton.textContent = 'Previsualizar';

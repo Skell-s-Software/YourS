@@ -4,13 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Skell's YourS</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Skell's YourS — Explorador de Archivos</h1>
-        <div id="path-display">/</div>
-        <ul id="file-list"></ul>
-        
+        <h1 class="caja"><marquee>Skell's YourS — Explorador de Archivos</marquee></h1>
+        <div class="caja">
+            <span>Directorio Actual: </span>
+            <span id="path-display">/</span>
+        </div>
+        <ul id="file-list" class="caja"></ul>
+        <div id="aviso" class="caja">
+            <p>Aun me falta agregar las opciones que permiten la subida de archivos.</p>
+        </div>
         <script src="script.js" defer></script>
     </body>
 </html>
